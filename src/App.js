@@ -5,9 +5,17 @@ import ModalMui from './Modal-mui';
 function App() {
   const [openModal, setOpenModal] = useState(false);
 
+  function modalStatus() {
+    if (openModal) {
+      return setOpenModal(false);
+    } else {
+      return setOpenModal(true);
+    }
+  }
+
   return (
     <div>
-      <button className='modalButton' onClick={() => setOpenModal(true)}>Modal</button>
+      <button className='modalButton' onClick={() => modalStatus()}>Open Modal</button>
       <Modal open={openModal} onClose={() => setOpenModal(false)} />
       <ModalMui />
     </div>
